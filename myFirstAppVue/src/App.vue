@@ -1,17 +1,34 @@
 <template>
   <div id="app">
     <h1>Hola Mundo</h1>
-    <Test/>
+    <nav>
+      <ul>
+        <li>
+          <router-link to="/test">
+            Test
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/">
+            User
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+    <hr>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import Test from './components/test.vue'
+import Test from './components/test.vue';
+import User from './components/user.vue';
 export default {
   name: 'App',
   components: {
-    Test
+    Test,
+    User
   }
 }
 </script>

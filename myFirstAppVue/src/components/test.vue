@@ -1,18 +1,6 @@
 <template>
-<div>
-<div v-text="title"></div>
-<div v-if="!showName">
-<p>No puedo mostrar nombre</p>
-</div>
-<div v-else>
-    <p>{{user.firstName}}</p>
-</div>
-<br>
-<ul>
-    <li v-for= "task in tasks">
-        {{task.title}}
-    </li>
-</ul>
+<div class="test">
+    {{msg}}
 </div>
 </template>
 
@@ -34,10 +22,31 @@ export default{
                 {title: 'play'}
             ]
         }
+    },
+    methods:{
+        saludar(name){
+            alert("hello " + name)
+        },
+        typingEnter(e){
+            console.log('Dio un enter');
+        }
+    },
+    computed:{
+        fullName(){
+            return this.user.firstName + ' ' + this.user.lastName;
+        }
+    },
+    props: {
+        msg:{
+            type:String,
+            default: "Mensaje por defecto"
+        }
     }
 }
 </script>
 
 <style media="screen">
-
+.test{
+    background-color: chocolate;
+}
 </style>
